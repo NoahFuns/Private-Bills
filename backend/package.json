@@ -1,0 +1,36 @@
+{
+  "name": "privatebills-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PrivateBills Hardhat backend using Zama FHEVM",
+  "scripts": {
+    "clean": "rimraf artifacts cache types",
+    "build": "hardhat compile",
+    "typechain": "hardhat typechain",
+    "deploy:localhost": "hardhat deploy --network localhost",
+    "deploy:sepolia": "hardhat deploy --network sepolia"
+  },
+  "dependencies": {
+    "@fhevm/hardhat-plugin": "^0.1.0",
+    "@fhevm/solidity": "^0.8.0",
+    "hardhat-deploy": "^0.12.4"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.4",
+    "@nomicfoundation/hardhat-ethers": "^3.0.6",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
+    "@nomicfoundation/hardhat-verify": "^2.0.9",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.0.0",
+    "chai": "^4.3.10",
+    "ethers": "^6.13.2",
+    "hardhat": "^2.22.10",
+    "hardhat-gas-reporter": "^2.2.0",
+    "rimraf": "^6.0.1",
+    "solidity-coverage": "^0.8.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
+
+
