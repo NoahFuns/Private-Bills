@@ -46,7 +46,7 @@ jobs:
         working-directory: frontend
         run: npm ci
 
-      - name: Build and export static site
+      - name: Build static site
         working-directory: frontend
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ env.BASE_PATH }}
@@ -55,7 +55,6 @@ jobs:
           CI: true
         run: |
           npm run build
-          npm run export || npx next export
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
