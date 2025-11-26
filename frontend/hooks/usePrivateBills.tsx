@@ -277,7 +277,7 @@ export const usePrivateBills = (parameters: {
         if (!sig) { setMessage("Unable to build FHEVM decryption signature"); return; }
         if (isStale()) { setMessage("Ignore FHEVM decryption"); return; }
         setMessage("Call FHEVM userDecrypt...");
-        const res = await instance.userDecrypt(
+        const res = (await instance.userDecrypt(
           [{ handle: thisHandle, contractAddress: thisAddress }],
           sig.privateKey,
           sig.publicKey,
@@ -286,7 +286,7 @@ export const usePrivateBills = (parameters: {
           sig.userAddress,
           sig.startTimestamp,
           sig.durationDays
-        );
+        )) as unknown as Record<string, string | bigint | boolean>;
         if (isStale()) { setMessage("Ignore FHEVM decryption"); return; }
         setClear({ handle: thisHandle, clear: res[thisHandle] });
         setMessage("Decrypt completed");
@@ -329,7 +329,7 @@ export const usePrivateBills = (parameters: {
         if (isStale()) { setMessage("Ignore FHEVM decryption"); return; }
         setMessage("Call FHEVM userDecrypt for tags...");
         const payload = nonZero.map((x) => ({ handle: x.handle, contractAddress: thisAddress }));
-        const res = await instance.userDecrypt(
+        const res = (await instance.userDecrypt(
           payload,
           sig.privateKey,
           sig.publicKey,
@@ -338,7 +338,7 @@ export const usePrivateBills = (parameters: {
           sig.userAddress,
           sig.startTimestamp,
           sig.durationDays
-        );
+        )) as unknown as Record<string, string | bigint | boolean>;
         if (isStale()) { setMessage("Ignore FHEVM decryption"); return; }
         const nextClears: Record<string, ClearValueType> = {};
         handlesWithTags.forEach(({ tag, handle }) => {
@@ -380,7 +380,7 @@ export const usePrivateBills = (parameters: {
         if (isStale()) { setMessage("Ignore FHEVM decryption"); return; }
         setMessage("Call FHEVM userDecrypt for income tags...");
         const payload = nonZero.map((x) => ({ handle: x.handle, contractAddress: thisAddress }));
-        const res = await instance.userDecrypt(
+        const res = (await instance.userDecrypt(
           payload,
           sig.privateKey,
           sig.publicKey,
@@ -389,7 +389,7 @@ export const usePrivateBills = (parameters: {
           sig.userAddress,
           sig.startTimestamp,
           sig.durationDays
-        );
+        )) as unknown as Record<string, string | bigint | boolean>;
         if (isStale()) { setMessage("Ignore FHEVM decryption"); return; }
         const nextClears: Record<string, ClearValueType> = {};
         handlesWithTags.forEach(({ tag, handle }) => {
@@ -471,7 +471,7 @@ export const usePrivateBills = (parameters: {
         );
         if (!sig) { setMessage("Unable to build FHEVM decryption signature"); return; }
         const payload = nonZero.map((x) => ({ handle: x.handle, contractAddress: thisAddress }));
-        const res = await instance.userDecrypt(
+        const res = (await instance.userDecrypt(
           payload,
           sig.privateKey,
           sig.publicKey,
@@ -480,7 +480,7 @@ export const usePrivateBills = (parameters: {
           sig.userAddress,
           sig.startTimestamp,
           sig.durationDays
-        );
+        )) as unknown as Record<string, string | bigint | boolean>;
         const nextClears: Record<string, ClearValueType> = {};
         handlesWithTags.forEach(({ tag, handle }) => {
           if (handle === ethers.ZeroHash) nextClears[tag] = { handle, clear: BigInt(0) };
@@ -527,7 +527,7 @@ export const usePrivateBills = (parameters: {
         );
         if (!sig) { setMessage("Unable to build FHEVM decryption signature"); return; }
         const payload = nonZero.map((x) => ({ handle: x.handle, contractAddress: thisAddress }));
-        const res = await instance.userDecrypt(
+        const res = (await instance.userDecrypt(
           payload,
           sig.privateKey,
           sig.publicKey,
@@ -536,7 +536,7 @@ export const usePrivateBills = (parameters: {
           sig.userAddress,
           sig.startTimestamp,
           sig.durationDays
-        );
+        )) as unknown as Record<string, string | bigint | boolean>;
         const nextClears: Record<string, ClearValueType> = {};
         handlesWithTags.forEach(({ tag, handle }) => {
           if (handle === ethers.ZeroHash) nextClears[tag] = { handle, clear: BigInt(0) };

@@ -2,12 +2,12 @@
 pragma solidity ^0.8.27;
 
 import {FHE, euint64, externalEuint64} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 /// @title PrivateBills - Encrypted on-chain accounting using Zama FHEVM
 /// @notice Stores income/expense records encrypted; computes balance and monthly totals fully encrypted
 /// @dev Mirrors Zama template FHE usage: FHE.fromExternal + FHE.add/sub + FHE.allowThis + FHE.allow
-contract PrivateBills is SepoliaConfig {
+contract PrivateBills is ZamaEthereumConfig {
     struct Record {
         euint64 amount; // encrypted amount
         bool isIncome; // plaintext flag

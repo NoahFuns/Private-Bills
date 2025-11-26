@@ -11,8 +11,8 @@
     "deploy:sepolia": "hardhat deploy --network sepolia"
   },
   "dependencies": {
-    "@fhevm/hardhat-plugin": "^0.1.0",
-    "@fhevm/solidity": "^0.8.0",
+    "@fhevm/hardhat-plugin": "^0.3.0-1",
+    "@fhevm/solidity": "^0.9.1",
     "hardhat-deploy": "^0.12.4"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
     "@nomicfoundation/hardhat-ethers": "^3.0.6",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
     "@nomicfoundation/hardhat-verify": "^2.0.9",
+    "@zama-fhe/relayer-sdk": "^0.3.0-5",
     "@typechain/ethers-v6": "^0.5.1",
     "@typechain/hardhat": "^9.0.0",
     "chai": "^4.3.10",
